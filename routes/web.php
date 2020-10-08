@@ -36,28 +36,28 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-//----------------------------'/channel/creat'------------------------------------------------
+//----------------------------'/channels/creat'------------------------------------------------
 
-Route::get('/channel/creat', function () {
-    return view('channel.creat');
+Route::get('/channels/creat', function () {
+    return view('channels.creat');
 })->name('creat');
 
-//----------------------------'/channel/edit'------------------------------------------------
+//----------------------------'/channels/edit'------------------------------------------------
 
-Route::get('/channel/edit', function () {
-    return view('channel.edit');
+Route::get('/channels/edit', function () {
+    return view('channels.edit');
 })->name('edit');
 
-//----------------------------'/channel/index'------------------------------------------------
+//----------------------------'/channels/index'------------------------------------------------
 
-Route::get('/channel', function () {
-    return view('channel.index');
-})->name('channel');
+Route::get('/channels', function () {
+    return view('channels.index');
+})->name('channels');
 
-//----------------------------'/channel/show'------------------------------------------------
+//----------------------------'/channels/show'------------------------------------------------
 
-Route::get('/channel/show', function () {
-    return view('channel.show');
+Route::get('/channels/show', function () {
+    return view('channels.show');
 })->name('show');
 
 
