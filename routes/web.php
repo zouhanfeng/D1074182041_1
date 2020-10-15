@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\ChannelsCtroller;
+use App\Http\Controllers\ChannelsCtroller;
 use App\Http\Controllers\YoutuberController;
 
 /*
@@ -39,8 +39,11 @@ Route::get('/', function () {
 })->name('welcome');
 
 
+
+//---------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
 //----------------------------'/channels/index'------------------------------------------------
-Route::get('/channels','\App\Http\Controllers\ChannelsCtroller@index')->name('channels');//function () {return view('channels.index');}      [ChannelsCtroller::class,'index']
+Route::get('/channels',[ChannelsCtroller::class,'index'])->name('channels');//function () {return view('channels.index');}    '\App\Http\Controllers\ChannelsCtroller@index')
 
 //----------------------------'/channels/creat'------------------------------------------------
 Route::get('/channels/creat',[ChannelsCtroller::class,'creat'] )->name('c_creat');
