@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\ChannelsCtroller;
+use App\Http\Controllers\YoutuberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,51 +38,34 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-//----------------------------'/channels/creat'------------------------------------------------
-
-Route::get('/channels/creat', function () {
-    return view('channels.creat');
-})->name('creat');
-
-//----------------------------'/channels/edit'------------------------------------------------
-
-Route::get('/channels/edit', function () {
-    return view('channels.edit');
-})->name('edit');
 
 //----------------------------'/channels/index'------------------------------------------------
+Route::get('/channels','\App\Http\Controllers\ChannelsCtroller@index')->name('channels');//function () {return view('channels.index');}      [ChannelsCtroller::class,'index']
 
-Route::get('/channels', function () {
-    return view('channels.index');
-})->name('channels');
+//----------------------------'/channels/creat'------------------------------------------------
+Route::get('/channels/creat',[ChannelsCtroller::class,'creat'] )->name('c_creat');
+
+//----------------------------'/channels/edit'------------------------------------------------
+Route::get('/channels/{id}/edit',[ChannelsCtroller::class,'edit'])->name('c_edit')->where(['id'=>'[0-9]+']);
 
 //----------------------------'/channels/show'------------------------------------------------
-
-Route::get('/channels/show', function () {
-    return view('channels.show');
-})->name('show');
+Route::get('/channels/{id}',[ChannelsCtroller::class,'show'])->name('c_show')->where(['id'=>'[0-9]+']);
 
 
-//----------------------------'/youtuber/creat'------------------------------------------------
 
-Route::get('/youtuber/creat', function () {
-    return view('youtuber.creat');
-})->name('creat');
+
+
+
+//---------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------
+//----------------------------'/youtuber/index'------------------------------------------------
+Route::get('/youtuber',[YoutuberController::class,'index'])->name('youtuber');
+
+//-------------------------------'/youtuber/creat'---------------------------------------------
+Route::get('/youtuber/creat', [YoutuberController::class,'creat'])->name('y_creat');
 
 //----------------------------'/youtuber/edit'------------------------------------------------
-
-Route::get('/youtuber/edit', function () {
-    return view('youtuber.edit');
-})->name('edit');
-
-//----------------------------'/youtuber/index'------------------------------------------------
-
-Route::get('/youtuber', function () {
-    return view('youtuber.index');
-})->name('youtuber');
+Route::get('/youtuber/{id}/edit',[YoutuberController::class,'edit'])->name('y_edit')->where(['id'=>'[0-9]+']);
 
 //----------------------------'/youtuber/show'------------------------------------------------
-
-Route::get('/youtuber/show', function () {
-    return view('youtuber.show');
-})->name('show');
+Route::get('/youtuber/{id}',[YoutuberController::class ,'show'])->name('y_show')->where(['id'=>'[0-9]+']);
